@@ -1,0 +1,113 @@
+#include "stdio.h"
+
+// function to clear input stream after input
+void clear(){
+int c;
+while ((c = getchar()) != '\n' && c != EOF);
+}
+
+// function to display menu and return user option
+char showMenu(){
+  
+printf("\nPlease select an option :\n\n");
+printf("‘A’ - display absolute value\n");
+printf("‘X’ - display max integers\n");
+printf("‘N’ - display min integers\n");
+printf("‘S’ - display square of integer\n");
+printf("‘Q’ - quit program\n");
+printf("\nYour option : ");
+char choice = getchar();
+clear();
+return choice;
+  
+}
+
+int main(void) {
+  
+int input1 = 0;
+int input2 = 0;
+int output = 0;
+  
+while( 1 )
+{
+char choice = showMenu();
+  
+switch (choice)
+{
+// finding the aabsolute value of number
+case 'a':
+case 'A':
+printf("Enter an integer : ");
+scanf("%d",&input1);
+  
+if ( input1 < 0 )
+output = -input1;
+else
+output = input1;
+  
+printf("The absolute value of %d is %d.\n",input1, output);
+clear();
+break;
+// finding the maximum value of numbers
+case 'x':
+case 'X':
+printf("Enter first integer : ");
+scanf("%d",&input1);
+printf("Enter second integer : ");
+scanf("%d",&input2);
+  
+if ( input1 > input2 )
+output = input1;
+else
+output = input2;
+  
+printf("The maximum value of %d and %d is %d.\n", input1, input2, output);
+clear();
+break;
+  
+// finding the minimum value of numbers
+case 'n':
+case 'N':
+printf("Enter first integer : ");
+scanf("%d",&input1);
+printf("Enter second integer : ");
+scanf("%d",&input2);
+  
+if ( input1 < input2 )
+output = input1;
+else
+output = input2;
+  
+printf("The minimum value of %d and %d is %d.\n", input1, input2, output);
+clear();
+break;
+  
+// finding the square value of number
+case 's':
+case 'S':
+printf("Enter an integer : ");
+scanf("%d",&input1);
+  
+output = input1 * input1;
+  
+printf("The square value of %d is %d.\n", input1, output);
+clear();
+break;
+  
+// quit the program
+case 'q':
+case 'Q':
+printf("Quiting program\n");
+return 0;
+  
+// unrecognized commands here
+default:
+printf("Error : unrecognized command\n");
+break;
+}
+  
+  
+  
+}
+return 0;
+}
